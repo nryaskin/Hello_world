@@ -19,13 +19,11 @@ void main(){
 int count_up(double *arr, int count){
     int inv_res = 1, tmp_res = 0, tmp_val = 0;
     for(int i = 1; i < count; i++){
-        if(arr[0] < arr[i]){
+        if(arr[0] <= arr[i]){
             tmp_val = count_up(arr + i, count - i);
             if(tmp_val > tmp_res)
                 tmp_res = tmp_val; 
         }
-        else if(arr[0] == arr[i])
-            inv_res++;
     } 
     inv_res += tmp_res;
     return inv_res;
@@ -35,13 +33,11 @@ int count_down(double *arr, int count){
 
     int inv_res = 1, tmp_res = 0, tmp_val = 0;
     for(int i = 1; i < count; i++){
-        if(arr[0] > arr[i]){
+        if(arr[0] >= arr[i]){
             tmp_val = count_down(arr + i, count - i);
             if(tmp_val > tmp_res)
                 tmp_res = tmp_val; 
         }
-        else if(arr[0] == arr[i])
-            inv_res++;
     } 
     inv_res += tmp_res;
     return inv_res;
